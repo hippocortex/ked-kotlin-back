@@ -1,6 +1,6 @@
-package com.pse.kotlinked.api.rest
+package com.pse.kotlinked.application.rest
 
-import com.pse.kotlinked.api.rest.model.FilmResponseDto
+import com.pse.kotlinked.application.model.FilmResponseDto
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping

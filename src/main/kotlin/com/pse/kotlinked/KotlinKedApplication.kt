@@ -1,6 +1,6 @@
 package com.pse.kotlinked
 
-import com.pse.kotlinked.api.rest.model.FilmResponseDto
+import com.pse.kotlinked.application.model.FilmResponseDto
 import org.slf4j.LoggerFactory
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -18,17 +18,21 @@ fun main(args: Array<String>) {
     demoVarNullable = null
     logger.info("longueur de la String ${demoVarNullable?.length}")
     //peut pas compiler car nullable ajout du '?' pour passer la compilation
-    val length = demoVarNullable?.length
+    //val length = demoVarNullable.length
     logger.info("longuer de la String avec ? et valeur null ==> ${demoVarNullable?.length}")
     var demoNotNullValue: String = "not null value"
-    //ne peut pas compiler
-    // //demoNotNullValue=null
+    //ne peut pas compiler car non nullable
+    //demoNotNullValue=null
     //value not null donc utilisable sans erreur
     val lengthNotNull = demoNotNullValue.length
     logger.info("longuer de la chaine non nullable ==> ${demoNotNullValue.length}")
 
 
-    val listWithNulls: List<FilmResponseDto?> = listOf(FilmResponseDto(id = "1", name = "first"), null)
+    //immuabilité "simple"
+    val immutableString = "immutable"
+    //immutableString="modify immutable string"
+
+    val listWithNulls: List<FilmResponseDto?> = listOf(FilmResponseDto(id = "1", title = "first"), null)
     for (item in listWithNulls) {
         item?.let { logger.info(it.toString()) } // prints Kotlin and ignores null
     }
